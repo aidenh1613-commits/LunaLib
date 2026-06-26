@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace LunaLib;
+namespace LunaLib.Json;
 
-public class Json
+public static class Serializer // boring data :v
 {
     public static void Save(Dictionary<string, object> data, string path)
     {

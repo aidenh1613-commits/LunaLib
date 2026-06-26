@@ -7,7 +7,7 @@
 
 
     <PackageId>LunaLib</PackageId>
-    <Version>1.0.0</Version>
+    <Version>2.0.0</Version>
     <Authors>aidenh1613-commits</Authors>
     <Description>A utility library to make my life easier</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
