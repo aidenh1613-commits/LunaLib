@@ -1,0 +1,43 @@
+using System.Text.Json;
+using System.Text.RegularExpressions;
+
+namespace LunaLib.Text;
+
+public class TranslationsKeeper // be careful of FileNotFoundExceptation and make sure json file is valid for parsing
+{
+	public Dictionary<string, string> Translations {get; private set;}
+	public string LanguagePath = "";
+	
+	public TranslationsKeeper(string languagePath)
+	{
+		this.LanguagePath = languagePath;
+		this.UpdateTranslations();
+	}
+
+	public void UpdateTranslations()
+	{
+		using FileStream openStream = File.OpenRead(this.LanguagePath);
+		
+		this.Translations = JsonSerializer.Deserialize<Dictionary<string, string>>(openStream);
+	}
+	
+	public string GetTranslation(string key, string[] placeIntoTranslation = null, string replaceTextHolder = "$%s")
+	{
+		string translation = this.Translations[key];
+		int index = 0;
+		
+		if (placeIntoTranslation is {Length: > 0})
+		{
+			translation = Regex.Replace(translation, replaceTextHolder, m => 
+       		{
+          		if (index < placeIntoTranslation.Length)
+          		{
+              		return placeIntoTranslation[index++];
+           		}
+           		return m.Value; 
+       		});
+		}
+		
+		return translation;
+	}
+}
