@@ -1,5 +1,6 @@
 # LunaLib
-A utility library to make my life easier, use it if you want.
+A utility library to make my life easier, use it if you want. <br>
+[Releases](https://github.com/aidenh1613-commits/LunaLib/releases)
 
 ## Features:
 Features of LunaLib, and what they do.
