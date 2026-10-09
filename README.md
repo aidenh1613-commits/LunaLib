@@ -39,7 +39,7 @@ Here is the example language file I'm using for this example:
 ```
 And here is the code to use this:
 ```csharp
-TranslationsKeeper translations = new("lang/en_us.json"); // makes new translations from file en_us.json
+TranslationsKeeper translations = new("lang/en_us.json". "lang/en_us.json"); // makes new translations from file en_us.json and the same fallback. the fallback should be the main translation file in case the current doesn't have the current key
 Console.WriteLine(translations.GetTranslation("Program.Hello", ["David"])); // where that "$%s" was is replaced with "David"
 // output is: Hai, David!
 ```
